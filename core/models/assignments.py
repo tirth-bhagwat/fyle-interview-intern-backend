@@ -76,7 +76,6 @@ class Assignment(db.Model):
 
     @classmethod
     def mark_grade(cls, _id, grade, auth_principal: AuthPrincipal):
-        print(auth_principal)
         assignment = Assignment.get_by_id(_id)
         assertions.assert_found(assignment, 'No assignment with this id was found')
         assertions.assert_valid(grade is not None, 'assignment with empty grade cannot be graded')
